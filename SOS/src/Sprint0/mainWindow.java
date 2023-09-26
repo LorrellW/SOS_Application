@@ -1,3 +1,5 @@
+// Lorrell Winfield 2023
+
 package Sprint0;
 //import secondaryWindow;
 import java.awt.EventQueue;
@@ -8,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -52,6 +56,7 @@ public class mainWindow extends JFrame {
 			public void run() {
 				try {
 					mainWindow frame = new mainWindow();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,6 +72,7 @@ public class mainWindow extends JFrame {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(mainWindow.class.getResource("/Images/SOS black.png")));
 		setTitle("SOS");
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 601, 396);
 		contentPane = new JPanel();
@@ -76,39 +82,39 @@ public class mainWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(0, 0, 212, 357);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel panel_1L = new JPanel();
+		panel_1L.setBackground(new Color(0, 0, 0));
+		panel_1L.setBounds(0, 0, 212, 357);
+		contentPane.add(panel_1L);
+		panel_1L.setLayout(null);
 		
 		JLabel gridPic = new JLabel("");
 		gridPic.setForeground(new Color(255, 0, 0));
 		gridPic.setHorizontalAlignment(SwingConstants.CENTER);
 		gridPic.setIcon(new ImageIcon(mainWindow.class.getResource("/Images/board small.jpg")));
 		gridPic.setBounds(1, 74, 212, 157);
-		panel.add(gridPic);
+		panel_1L.add(gridPic);
 		
 		JLabel sosPic = new JLabel("");
 		sosPic.setHorizontalAlignment(SwingConstants.CENTER);
 		sosPic.setIcon(new ImageIcon(mainWindow.class.getResource("/Images/SOS black.png")));
 		sosPic.setBounds(0, 0, 212, 108);
-		panel.add(sosPic);
+		panel_1L.add(sosPic);
 		
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(51, 51, 51));
-		panel_1.setBounds(211, 0, 374, 357);
-		contentPane.add(panel_1);
-		SpringLayout sl_panel_1 = new SpringLayout();
-		panel_1.setLayout(sl_panel_1);
+		JPanel panel_1R = new JPanel();
+		panel_1R.setBackground(new Color(51, 51, 51));
+		panel_1R.setBounds(211, 0, 374, 357);
+		contentPane.add(panel_1R);
+		SpringLayout sl_panel_1R = new SpringLayout();
+		panel_1R.setLayout(sl_panel_1R);
 		
 		JPanel panel_2 = new JPanel();
-		sl_panel_1.putConstraint(SpringLayout.NORTH, panel_2, 76, SpringLayout.NORTH, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.WEST, panel_2, 10, SpringLayout.WEST, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.EAST, panel_2, -10, SpringLayout.EAST, panel_1);
+		sl_panel_1R.putConstraint(SpringLayout.NORTH, panel_2, 76, SpringLayout.NORTH, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.WEST, panel_2, 10, SpringLayout.WEST, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.EAST, panel_2, -10, SpringLayout.EAST, panel_1R);
 		panel_2.setBackground(new Color(153, 153, 153));
-		panel_1.add(panel_2);
+		panel_1R.add(panel_2);
 		panel_2.setLayout(null);
 		
 		Label label_1 = new Label("Game Type:");
@@ -180,38 +186,41 @@ public class mainWindow extends JFrame {
 		panel_2.add(p2CPUbtn);
 		
 		JLabel gameLabel = new JLabel("Game Settings");
-		sl_panel_1.putConstraint(SpringLayout.NORTH, gameLabel, 41, SpringLayout.NORTH, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.WEST, gameLabel, 0, SpringLayout.WEST, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.SOUTH, gameLabel, -6, SpringLayout.NORTH, panel_2);
-		sl_panel_1.putConstraint(SpringLayout.EAST, gameLabel, 374, SpringLayout.WEST, panel_1);
-		panel_1.add(gameLabel);
+		sl_panel_1R.putConstraint(SpringLayout.NORTH, gameLabel, 41, SpringLayout.NORTH, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.WEST, gameLabel, 0, SpringLayout.WEST, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.SOUTH, gameLabel, -6, SpringLayout.NORTH, panel_2);
+		sl_panel_1R.putConstraint(SpringLayout.EAST, gameLabel, 374, SpringLayout.WEST, panel_1R);
+		panel_1R.add(gameLabel);
 		gameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		gameLabel.setFont(new Font("SimSun", Font.BOLD, 20));
 		gameLabel.setForeground(new Color(220, 220, 220));
 		
 		JButton startButton = new JButton("Start Game");
-		sl_panel_1.putConstraint(SpringLayout.SOUTH, panel_2, -21, SpringLayout.NORTH, startButton);
-		sl_panel_1.putConstraint(SpringLayout.SOUTH, startButton, -29, SpringLayout.SOUTH, panel_1);
+		sl_panel_1R.putConstraint(SpringLayout.SOUTH, panel_2, -21, SpringLayout.NORTH, startButton);
+		sl_panel_1R.putConstraint(SpringLayout.SOUTH, startButton, -29, SpringLayout.SOUTH, panel_1R);
 		startButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		startButton.setFont(new Font("SimSun", Font.PLAIN, 15));
 		startButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		startButton.setForeground(new Color(0, 0, 0));
 		startButton.setBackground(new Color(50, 205, 50));
-		sl_panel_1.putConstraint(SpringLayout.NORTH, startButton, 294, SpringLayout.NORTH, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.WEST, startButton, 121, SpringLayout.WEST, panel_1);
-		sl_panel_1.putConstraint(SpringLayout.EAST, startButton, -126, SpringLayout.EAST, panel_1);
+		sl_panel_1R.putConstraint(SpringLayout.NORTH, startButton, 294, SpringLayout.NORTH, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.WEST, startButton, 121, SpringLayout.WEST, panel_1R);
+		sl_panel_1R.putConstraint(SpringLayout.EAST, startButton, -126, SpringLayout.EAST, panel_1R);
 		startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
                 secondaryWindow secondaryWindow = new secondaryWindow();
+        		secondaryWindow.setLocationRelativeTo(null);
                 secondaryWindow.setVisible(true);
                 dispose();
 				
 			}
 		});
 		
-		panel_1.add(startButton);
+		panel_1R.add(startButton);
 		
 		
 	}
+
 }
+
 
