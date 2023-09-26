@@ -1,5 +1,3 @@
-// Lorrell Winfield 2023
-
 package Sprint0;
 //import secondaryWindow;
 import java.awt.EventQueue;
